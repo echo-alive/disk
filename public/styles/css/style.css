@@ -1,0 +1,456 @@
+﻿* {
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    outline: none;
+    border: 0;
+    font-family: 微软雅黑;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+}
+
+html {
+    font-size: 62.5%; /* 10÷16=62.5% */
+}
+
+body {
+    font-size: 12px;
+    font-size: 1.2rem; /* 12÷10=1.2 */
+}
+
+p {
+    font-size: 14px;
+    font-size: 1.4rem;
+}
+
+h1, h2, h3, h4, h5, b {
+    font-weight: normal;
+}
+
+body {
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    background-color: #FFF;
+}
+
+body.off {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+/*动画*/
+@-webkit-keyframes swi {
+    from {
+        -webkit-transform: rotateY(0);
+        -ms-transform: rotateY(0);
+        -o-transform: rotateY(0);
+        transform: rotateY(0);
+    }
+    to {
+        -webkit-transform: rotateY(360deg);
+        -ms-transform: rotateY(360deg);
+        -o-transform: rotateY(360deg);
+        transform: rotateY(360deg);
+    }
+}
+
+@keyframes swi {
+    from {
+        -webkit-transform: rotateY(0);
+        -ms-transform: rotateY(0);
+        -o-transform: rotateY(0);
+        transform: rotateY(0);
+    }
+    to {
+        -webkit-transform: rotateY(360deg);
+        -ms-transform: rotateY(360deg);
+        -o-transform: rotateY(360deg);
+        transform: rotateY(360deg);
+    }
+}
+
+.clear {
+    clear: both;
+}
+
+.hide {
+    display: none;
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+    background-color: #ccc;
+}
+
+/*定义滚动条轨道 内阴影+圆角*/
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px;
+    background-color: transparent;
+    border-radius: 10px;
+}
+
+/*定义滑块 内阴影+圆角*/
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px transparent;
+    background-color: #333333;
+}
+
+@keyframes style1 {
+    from, 20%, 53%, 80%, to {
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+        transform: translate3d(0, 0.5, 0.1);
+    }
+    40%, 43% {
+        animation-timing-function: cubic-bezier(0.755, 0.050, 0.855, 0.060);
+        transform: translate3d(0px, -10px, 0);
+    }
+}
+
+@keyframes style2 {
+    from {
+        transform: scale3d(1, 1, 1);
+    }
+    30% {
+        transform: scale3d(1.25, 0.75, 1);
+    }
+    40% {
+        transform: scale3d(0.75, 1.25, 1);
+    }
+    50% {
+        transform: scale3d(1.15, 0.85, 1);
+    }
+    65% {
+        transform: scale3d(.95, 1.05, 1);
+    }
+    75% {
+        transform: scale3d(1.05, .95, 1);
+    }
+    to {
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes style3 {
+    from {
+        transform: scale3d(1, 1, 1);
+    }
+    10%, 20% {
+        transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+    }
+    30%, 50%, 70%, 90% {
+        transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+    }
+    40%, 60%, 80% {
+        transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+    }
+    to {
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+@keyframes style4 {
+    from, 20%, 40%, 60%, 80%, to {
+        animation-timing-function: cubic-bezier(0.215, 0.610, 0.355, 1.000);
+    }
+    0% {
+        opacity: 0;
+        transform: scale3d(.3, .3, .3);
+    }
+    20% {
+        transform: scale3d(1.1, 1.1, 1.1);
+    }
+    40% {
+        transform: scale3d(.9, .9, .9);
+    }
+    60% {
+        opacity: 1;
+        transform: scale3d(1.03, 1.03, 1.03);
+    }
+    80% {
+        transform: scale3d(.97, .97, .97);
+    }
+    to {
+        opacity: 1;
+        transform: scale3d(1, 1, 1);
+    }
+}
+
+.top-box {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: calc(100% - 120px);
+    padding: 0 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: #ebebeb 5px 5px 5px;
+    z-index: 100;
+}
+
+.top-box h1 a {
+    color: #000;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.top-box h1 a > div {
+    animation-name: style4;
+}
+
+.top-box h1 a > div {
+    animation-duration: 4s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+}
+
+.top-box h1 a > div:nth-child(1) {
+    animation-delay: 0.0s
+}
+
+.top-box h1 a > div:nth-child(2) {
+    animation-delay: 0.1s
+}
+
+.top-box h1 a > div:nth-child(3) {
+    animation-delay: 0.2s
+}
+
+.top-box h1 a > div:nth-child(4) {
+    animation-delay: 0.3s
+}
+
+.top-box h1 a > div:nth-child(5) {
+    animation-delay: 0.4s
+}
+
+.top-box h1 a > div:nth-child(6) {
+    animation-delay: 0.5s
+}
+
+.top-box .user-info a {
+    color: #000;
+}
+
+.top-box .user-info a:first-child {
+    margin-right: 10px;
+}
+
+.left-box {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 200px;
+    height: calc(100% - 60px);
+    background-color: #f6f6f6;
+    z-index: 99;
+}
+
+.left-box ul {
+    padding-top: 30px;
+}
+
+.left-box ul li a {
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 16px;
+    color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.left-box ul li a.on {
+    color: #000;
+    background-color: #ebebeb;
+}
+
+.left-box ul li a img {
+    width: 25px;
+    height: 25px;
+    display: block;
+    margin-right: 10px;
+    margin-left: -10px;
+}
+
+.right-box {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: calc(100% - 200px);
+    height: calc(100% - 60px);
+    background-color: #fff;
+    z-index: 99;
+    overflow-y: scroll;
+}
+
+.right-box .tool {
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+}
+
+.right-box .tool .upload-box {
+    width: 90px;
+    height: 35px;
+    position: relative;
+    cursor: pointer;
+
+}
+
+.right-box .tool .upload-box .one-upload {
+    width: 100%;
+    height: 100%;
+    background-color: #09AAFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    position: relative;
+    color: #fff;
+    font-size: 14px;
+}
+
+.right-box .tool img {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    display: block;
+}
+
+.right-box .tool .upload-box ul {
+    position: absolute;
+    width: calc(100% - 2px);
+    top: calc(100% - 5px);
+    left: 0;
+    border: 1px solid #09AAFF;
+    z-index: 1000;
+    background-color: #fff;
+    padding-top: 5px;
+    -webkit-border-radius: 0 0 5px 5px;
+    -moz-border-radius: 0 0 5px 5px;
+    border-radius: 0 0 5px 5px;
+    display: none;
+}
+
+.right-box .tool .upload-box:hover ul {
+    display: block;
+}
+
+.right-box .tool .upload-box ul li {
+    position: relative;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #09AAFF;
+}
+
+.right-box .tool .upload-box input {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: block;
+    left: 0;
+    top: 0;
+    z-index: 100;
+
+}
+
+.right-box .tool .add-packbox {
+    width: 118px;
+    height: 33px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    position: relative;
+    color: #09AAFF;
+    font-size: 14px;
+    border: 1px solid #09AAFF;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.right-box .tool .getCheckData {
+    width: 80px;
+    height: 33px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    position: relative;
+    color: red;
+    font-size: 14px;
+    border: 1px solid red;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.layui-table {
+    -moz-user-select: none; /* Firefox私有属性 */
+    -webkit-user-select: none; /* WebKit内核私有属性 */
+    -ms-user-select: none; /* IE私有属性(IE10及以后) */
+    -khtml-user-select: none; /* KHTML内核私有属性 */
+    -o-user-select: none; /* Opera私有属性 */
+    user-select: none; /* CSS3属性 */
+}
+
+.layui-table img {
+    width: 20px;
+    margin-right: 10px;
+}
+
+@media (max-width: 600px) {
+    .left-box {
+        top: 60px;
+        height: 30px;
+        width: 100%;
+        bottom: unset;
+    }
+
+    .left-box ul {
+        padding-top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #fff;
+    }
+
+    .left-box ul li {
+        width: 50%;
+    }
+
+    .right-box {
+        width: 100%;
+        top: 110px;
+        bottom: unset;
+    }
+}
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
