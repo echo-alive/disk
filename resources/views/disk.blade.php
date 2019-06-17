@@ -57,11 +57,18 @@
             {{--</li>--}}
             {{--</ul>--}}
         </div>
+        <div class="folder-upload">
+            <input type='file'
+                   name="file"
+                   webkitdirectory>
+            选择文件夹
+        </div>
         <div class="add-packbox">
             <img src="/styles/images/add-file.png"
                  alt="">
             新建文件夹
         </div>
+
         <div class="getCheckData">
             <img src="/styles/images/delete.png"
                  alt="">
@@ -112,6 +119,32 @@
             }, 800);
 
         }
+
+        var files = [];
+        $(document).ready(function () {
+            $(".folder-upload input").change(function () {
+                files = this.files;
+                var fd = new FormData();
+                for (var i = 0; i < files.length; i++) {
+                    fd.append("file", files[i]);
+                    fd.append("folder_name", (files[i]['webkitRelativePath']).split('/')[0]);
+                    fd.append('_token','{{csrf_token()}}');
+                    $.ajax({
+                        url: "/uploadFolder",
+                        method: "POST",
+                        data: fd,
+                        contentType: false,
+                        processData: false,
+                        cache: false,
+                        success: function (data) {
+
+                        }
+                    });
+                }
+                refresh();
+
+            });
+        });
 
         //多图片上传
         upload.render({
@@ -303,6 +336,7 @@
             //console.log(obj)
             if (obj.event === 'show') {
                 if (data.file_type == 'pack') {
+                    console.log(data.id);
                     goFolder(data.id);
                     return;
                 }

@@ -18,8 +18,9 @@ class DiskController extends Controller
                 'id' => session('userSession')->id,
                 'username' => session('userSession')->username,
             ];
-            session()->put('is_share', 0);//私有
-            session()->put('folder_id', 0);//
+            session()->put('is_share', 0);//共用
+            if (!session('folder_id'))
+                session()->put('folder_id', 0);//
             return view('disk', compact('data'));
         }
 
@@ -36,6 +37,7 @@ class DiskController extends Controller
                 'username' => session('userSession')->username,
             ];
             session()->put('is_share', 1);//共用
+            session()->put('folder_id', 0);//
             return view('share', compact('data'));
         }
 

@@ -28,4 +28,5 @@ Route::post('/addFolder', 'DiskController@addFolder');
 Route::post('/editFolder', 'DiskController@editFolder');
 
 Route::post('/uploadFiles', 'UploadController@uploadFiles');
+Route::post('/uploadFolder', 'UploadController@uploadFolder');
 
